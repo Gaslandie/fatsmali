@@ -92,6 +92,12 @@
             color: var(--light-color);
             padding: 100px 0;
             position: relative;
+            overflow: hidden;
+            transition: background-color 0.5s ease-out;
+        }
+
+        .hero-section:hover::before {
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .hero-section::before {
@@ -101,7 +107,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); 
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .stats-section {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .card-custom {
@@ -171,14 +197,51 @@
     </header>
 
     <main>
+        <!--Section hero-->
         <section class="hero-section text-center d-flex align-items-center">
             <div class="container position-relative" style="z-index: 1;">
                 <h1 class="display-2 fw-bold">Votre partenaire d'affaires idéal au Maroc</h1>
-                <p class="lead mt-4">Nous vous offrons un service de qualité irréprochable dans divers domaines.</p>
+                <p class="lead mt-4">Nous offrons un service de qualité, alliant professionnalisme et excellence. Du
+                    commerce et import-export aux formations professionnelles et à la communication globale, nous vous
+                    accompagnons pour réaliser vos projets avec succès.</p>
                 <a href="services.html" class="btn btn-custom btn-lg mt-3">Découvrez nos services</a>
             </div>
         </section>
 
+        <!--Section Statistiques-->
+        <section class="stats-section py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-item">
+                            <span class="stat-number counter fw-bold" data-target="2020">0</span>
+                            <div class="stat-label mt-2">Année de création</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-item">
+                            <span class="stat-number counter fw-bold" data-target="5">0</span>
+                            <div class="stat-label mt-2">Domaines d'expertise</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-item">
+                            <span class="stat-number counter fw-bold" data-target="100">0</span>
+                            <div class="stat-label mt-2">Qualité garantie</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-item">
+                            <span class="stat-number fw-bold">∞</span>
+                            <div class="stat-label mt-2">Solutions sur mesure</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Section A propos-->
         <section class="py-5">
             <div class="container">
                 <div class="row align-items-center">
@@ -212,8 +275,7 @@
                                 <h5 class="card-title fw-bold">Achat & Logistique</h5>
                                 <p class="card-text">
                                     Nous sommes votre partenaire d'affaires idéal pour tout besoin de formation sur
-                                    mesure et de certification exécutive dans les secteurs d'achat et logistique[cite:
-                                    9, 10, 24, 26].
+                                    mesure et de certification exécutive dans les secteurs d'achat et logistique
                                 </p>
                             </div>
                         </div>
@@ -225,7 +287,7 @@
                                 <h5 class="card-title fw-bold">Finance & Comptabilité</h5>
                                 <p class="card-text">
                                     Nous offrons des formations et certifications dans les domaines de la finance,
-                                    budget, trésorerie et comptabilité[cite: 17, 56, 58, 59].
+                                    budget, trésorerie et comptabilité.
                                 </p>
                             </div>
                         </div>
@@ -237,7 +299,7 @@
                                 <h5 class="card-title fw-bold">Marketing & Commercial</h5>
                                 <p class="card-text">
                                     Bénéficiez de notre expertise en marketing stratégique, digital et en techniques de
-                                    vente pour optimiser votre performance[cite: 19, 73].
+                                    vente pour optimiser votre performance.
                                 </p>
                             </div>
                         </div>
@@ -256,9 +318,9 @@
                         <h2 class="fw-bold">AFRI-NUTRI : Pour une alimentation saine</h2>
                         <p class="lead">
                             AFRI-NUTRI est une marque de FAT-S-MALI qui promeut une alimentation plus saine et
-                            équilibrée[cite: 140].
+                            équilibrée.
                             Nous offrons une sélection de produits de qualité, des céréales complètes aux compléments
-                            alimentaires naturels[cite: 143, 144].
+                            alimentaires naturels.
                         </p>
                         <a href="#" class="btn btn-custom">Découvrez nos produits</a>
                     </div>
@@ -279,9 +341,9 @@
                     <h5>Contact</h5>
                     <ul class="list-unstyled">
                         <li><i class="fas fa-map-marker-alt"></i> Angle rue El Aarar et boulevard Lalla Yacout,
-                            Casablanca, Maroc [cite: 98, 99, 100, 113, 115, 116]</li>
-                        <li><i class="fas fa-phone"></i> +212 (0) 770 740 159 [cite: 97]</li>
-                        <li><i class="fas fa-envelope"></i> fatsmali201@gmail.com [cite: 97, 112]</li>
+                            Casablanca, Maroc</li>
+                        <li><i class="fas fa-phone"></i> +212 (0) 770 740 159</li>
+                        <li><i class="fas fa-envelope"></i> fatsmali201@gmail.com</li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-center text-md-end">
@@ -296,8 +358,49 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script>
-        // Votre code JavaScript personnalisé peut aller ici
-        console.log("Le script de la page d'accueil est chargé.");
+        //attend que le dom soit chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+
+            //declencher l'animation quand 50% de l'element est visible
+            const options = { root: null, threshold: 0.5 };
+
+
+            //observer l'apparition des compteurs à l'ecran
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { // quand l'element devient visible
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        let count = 0;
+                        const increment = target / 200; //vitesse d'incrementation
+
+                        //Fonction recursive qui augmente le compteur progressivement
+                        const updateCounter = () => {
+                            count += increment;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                requestAnimationFrame(updateCounter); //animation fluide
+                            } else {
+                                //affiche la valeur finale avec suffixe eventuel
+                                counter.innerText = target;
+                                if (target === 5) {
+                                    counter.innerText += '+';
+                                } else if (target === 100) {
+                                    counter.innerText += '%';
+                                }
+                                observer.unobserve(counter); //arrete d'observer cet element
+                            }
+                        }
+                        updateCounter();
+                    }
+                });
+            }, options);
+            //lance l'observation de tous les compteurs
+            counters.forEach(counter => {
+                observer.observe(counter);
+            })
+        })
     </script>
 </body>
 
