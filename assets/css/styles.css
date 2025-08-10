@@ -1,0 +1,157 @@
+:root {
+    --primary-color: #000;
+    /* Noir */
+    --secondary-color: #d4af37;
+    /* Doré */
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.navbar-custom {
+    background-color: var(--primary-color);
+}
+
+.navbar-brand-custom {
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.fat-text {
+    font-weight: 700;
+}
+
+.navbar-brand:hover .navbar-brand-custom {
+    transform: scale(1.05);
+    color: var(--secondary-color) !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--light-color) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.nav-link:hover,
+.footer-custom a:hover {
+    color: var(--secondary-color) !important;
+    transform: scale(1.1);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.btn-custom {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary-color);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.hero-section {
+    background: url('../images/herobg.jpg') no-repeat center center/cover;
+    color: var(--light-color);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease-out;
+}
+
+.hero-section:hover::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.stats-section {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    color: var(--secondary-color);
+}
+
+.stat-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-custom {
+    border: 1px solid var(--secondary-color);
+    transition: transform 0.3s;
+}
+
+.card-custom:hover {
+    transform: translateY(-10px);
+}
+
+.footer-custom {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.afri-nutri-logo {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+.footer-custom a {
+    color: var(--light-color);
+}
+
+.footer-custom .list-unstyled li {
+    margin-bottom: 5px;
+}
+
+.footer-custom .fab:hover {
+    color: var(--secondary-color);
+}
+
+.footer-custom h5 {
+    color: var(--secondary-color);
+}
