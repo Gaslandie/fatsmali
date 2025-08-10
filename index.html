@@ -146,6 +146,12 @@
             color: var(--light-color);
         }
 
+        .afri-nutri-logo {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+        }
+
         .footer-custom a {
             color: var(--primary-color);
         }
@@ -209,7 +215,7 @@
         <!--Section hero-->
         <section class="hero-section text-center d-flex align-items-center" data-aos="fade-up" data-aos-delay="100">
             <div class="container position-relative" style="z-index: 1;">
-                <h1 class="display-2 fw-bold">Votre partenaire d'affaires idéal au Maroc</h1>
+                <h1 class="display-2 fw-bold">Votre partenaire d'affaires idéal en Afrique</h1>
                 <p class="lead mt-4">Nous offrons un service de qualité, alliant professionnalisme et excellence. Du
                     commerce et import-export aux formations professionnelles et à la communication globale, nous vous
                     accompagnons pour réaliser vos projets avec succès.</p>
@@ -223,8 +229,8 @@
                 <div class="row text-center">
                     <div class="col-md-3 col-6 mb-4">
                         <div class="stat-item">
-                            <span class="stat-number counter fw-bold" data-target="2020">0</span>
-                            <div class="stat-label mt-2">Année de création</div>
+                            <span class="stat-number counter fw-bold" data-target="150">0</span>
+                            <div class="stat-label mt-2">Clients</div>
                         </div>
                     </div>
                     <div class="col-md-3 col-6 mb-4">
@@ -322,7 +328,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 order-md-2" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/images/afrinutrii.jpg" class="img-fluid rounded" alt="Logo AFRI-NUTRI">
+                        <img src="assets/images/afrinutri.jpeg" class="afri-nutri-logo" alt="Logo AFRI-NUTRI">
                     </div>
                     <div class="col-md-6 order-md-1 mt-4 mt-md-0 text-center">
                         <h2 class="fw-bold">AFRI-NUTRI : Pour une alimentation saine</h2>
@@ -412,6 +418,9 @@
                                 //affiche la valeur finale avec suffixe eventuel
                                 counter.innerText = target;
                                 if (target === 5) {
+                                    counter.innerText += '+';
+                                }
+                                else if (target === 150) {
                                     counter.innerText += '+';
                                 } else if (target === 100) {
                                     counter.innerText += '%';
