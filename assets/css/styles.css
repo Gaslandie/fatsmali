@@ -186,3 +186,22 @@ body {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+/*page formation*/
+/*page formation, marge entre les formations*/
+@media (min-width: 992px) {
+    .extra-large-margin {
+        margin-bottom: 100px !important;
+    }
+}
+.justify-text {
+    text-align: justify;
+}
+
+.bg-formation-1 {
+    background-color: #f5f5f0; 
+}
+
+.bg-formation-2 {
+    background-color: #fafaf5; 
+}
