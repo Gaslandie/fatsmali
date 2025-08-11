@@ -1,10 +1,12 @@
 :root {
-    --primary-color: #000;
-    /* Noir */
-    --secondary-color: #d4af37;
-    /* Doré */
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
+    --primary-color: #0a0a0a;
+    /* Noir intense */
+    --secondary-color: #c89b38;
+    /* Or chaud */
+    --light-color: #eeeeee;
+    /* Gris très subtil */
+    --dark-color: #222222;
+    /* Gris foncé élégant */
 }
 
 body {
@@ -204,4 +206,31 @@ body {
 
 .bg-formation-2 {
     background-color: #fafaf5; 
+}
+
+/* Styles pour les deux cartes de contact */
+.contact-card {
+    background-color: var(--light-color); /* Arrière-plan harmonisé */
+    border: 1px solid var(--secondary-color);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    height: 100%; /* S'assure que la carte s'étire en hauteur */
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card .list-unstyled li {
+    color: var(--dark-color);
+}
+
+.contact-card h2, .contact-card p, .contact-card label {
+    color: var(--dark-color);
+}
+
+.contact-card .fa-2x {
+    color: var(--secondary-color);
+}
+
+.contact-card .fa-map-marker-alt, .contact-card .fa-phone, .contact-card .fa-envelope {
+    font-size: 2rem;
 }
