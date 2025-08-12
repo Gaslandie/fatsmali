@@ -238,7 +238,7 @@ h6 {
 }
 
 /*afrinutri section*/
-.afrinutri-content {
+.afrinutri-content, .histoire-content, .excellence-content {
     max-width: 65vw;
     margin: 0 auto;
     background-color: var(--light-color);
@@ -249,7 +249,7 @@ h6 {
     background-color:#ece7dd;
 }
 
-.afrinutri-content p {
+.afrinutri-content p, .histoire-content p, .excellence-content p {
     font-family: 'Roboto', sans-serif;
     color: var(--dark-color);
     font-size: 1.05rem;
@@ -258,17 +258,16 @@ h6 {
     text-align: justify;
     transition: transform 0.3s ease-in-out;
 }
-.afrinutri-content p:hover {
+.afrinutri-content p:hover, .histoire-content p:hover, .excellence-content p:hover {
      transform: translateX(10px);
 }
 
 @media (max-width: 768px) {
-    .afrinutri-content {
+    .afrinutri-content, .histoire-content, .excellence-content {
         max-width: 90%;
         padding: 20px;
     }
 }
-
 
 
 /*les card pages services*/
@@ -344,4 +343,35 @@ h6 {
 .contact-card .fa-phone,
 .contact-card .fa-envelope {
     font-size: 2rem;
+}
+
+/*PAGE ABOUT*/
+.image-gallery img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+/* Hauteurs des images de la galerie */
+.gallery-img-tall {
+    height: 300px;
+}
+
+.gallery-img-short {
+    height: 200px;
+}
+
+/* Ajustement pour les écrans plus petits */
+@media (max-width: 768px) {
+    .gallery-img-tall {
+        height: 200px;
+    }
+
+    .gallery-img-short {
+        height: 150px;
+    }
 }
