@@ -359,9 +359,6 @@ h6 {
 }
 
 /* Hauteurs des images de la galerie */
-.gallery-img-tall {
-    height: 300px;
-}
 
 .gallery-img-short {
     height: 200px;
@@ -369,10 +366,6 @@ h6 {
 
 /* Ajustement pour les écrans plus petits */
 @media (max-width: 768px) {
-    .gallery-img-tall {
-        height: 200px;
-    }
-
     .gallery-img-short {
         height: 150px;
     }
