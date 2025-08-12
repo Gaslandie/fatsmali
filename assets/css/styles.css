@@ -28,6 +28,8 @@ h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Barre de navigation */
+
 .navbar-custom {
     background-color: var(--primary-color);
 }
@@ -105,7 +107,7 @@ h6 {
 
 /*section hero*/
 .hero-section {
-    background: url('../images/aboutimage.jpg') no-repeat center center/cover;
+    background: url('../images/herobg.jpg') no-repeat center center/cover;
     color: var(--light-color);
     padding: 100px 0;
     position: relative;
@@ -238,7 +240,7 @@ h6 {
 }
 
 /*afrinutri section*/
-.afrinutri-content, .histoire-content, .excellence-content {
+.afrinutri-content, .histoire-content, .excellence-content, .sainement-content, .service-content {
     max-width: 65vw;
     margin: 0 auto;
     background-color: var(--light-color);
@@ -249,7 +251,7 @@ h6 {
     background-color:#ece7dd;
 }
 
-.afrinutri-content p, .histoire-content p, .excellence-content p {
+.afrinutri-content p, .histoire-content p, .excellence-content p, .sainement-content p, .service-content p {
     font-family: 'Roboto', sans-serif;
     color: var(--dark-color);
     font-size: 1.05rem;
@@ -258,12 +260,12 @@ h6 {
     text-align: justify;
     transition: transform 0.3s ease-in-out;
 }
-.afrinutri-content p:hover, .histoire-content p:hover, .excellence-content p:hover {
+.afrinutri-content p:hover, .histoire-content p:hover, .excellence-content p:hover, .sainement-content p:hover,.service-content p:hover {
      transform: translateX(10px);
 }
 
 @media (max-width: 768px) {
-    .afrinutri-content, .histoire-content, .excellence-content {
+    .afrinutri-content, .histoire-content, .excellence-content, .sainement-content,.service-content {
         max-width: 90%;
         padding: 20px;
     }
