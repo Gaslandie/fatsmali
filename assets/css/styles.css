@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+
 :root {
     --primary-color: #0a0a0a;
     /* Noir intense */
@@ -10,9 +13,19 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Appliquer Roboto pour le corps du texte */
+    font-family: 'Roboto', sans-serif;
     background-color: var(--light-color);
     color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar-custom {
@@ -90,8 +103,9 @@ body {
     /* Diminue l'opacité de 10% */
 }
 
+/*section hero*/
 .hero-section {
-    background: url('../images/herobg.jpg') no-repeat center center/cover;
+    background: url('../images/aboutimage.jpg') no-repeat center center/cover;
     color: var(--light-color);
     padding: 100px 0;
     position: relative;
@@ -113,6 +127,18 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+.hero-title, .about-title, .afrinutri-title, .contact-title, .formation-title, .services-title{
+    font-size: 3rem; 
+}
+
+@media (max-width: 768px) {
+    .hero-title, .about-title, .afrinutri-title, .contact-title, .formation-title, .services-title {
+        font-size: 1.5rem; /* Taille plus petite pour les mobiles */
+    }
+}
+
+/*section stats*/
+
 .stats-section {
     background-color: var(--primary-color);
     color: var(--light-color);
@@ -133,24 +159,66 @@ body {
     letter-spacing: 1px;
 }
 
-.card-custom {
-    border: 1px solid var(--secondary-color);
-    transition: transform 0.3s;
+/*section about*/
+.about-content {
+    max-width: 65vw;
+    margin: 0 auto;
+    background-color: var(--light-color);
+    padding: 30px;
+    border-left: 6px solid var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background-color:#ece7dd;
 }
 
-.card-custom:hover {
-    transform: translateY(-10px);
+.about-content p {
+    font-family: 'Roboto', sans-serif;
+    color: var(--dark-color);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    transition: transform 0.3s ease-in-out;
+}
+.about-content p:hover {
+     transform: translateX(10px);
 }
 
-.footer-custom {
+@media (max-width: 768px) {
+    .about-content {
+        max-width: 90%;
+        padding: 20px;
+    }
+}
+
+
+/*section domaine d'expertise*/
+.expertise-section {
     background-color: var(--primary-color);
     color: var(--light-color);
 }
 
+.expertise-section .card-custom {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.expertise-section .card-custom .fa-3x,
+.expertise-section .card-title {
+    color: var(--light-color);
+}
+
+
+
+/*footer*/
 .afri-nutri-logo {
-    max-width: 500px;
+    max-width: 400px;
     width: 100%;
     height: auto;
+}
+.footer-custom {
+    background-color: var(--primary-color);
+    color: var(--light-color);
 }
 
 .footer-custom a {
@@ -168,6 +236,40 @@ body {
 .footer-custom h5 {
     color: var(--secondary-color);
 }
+
+/*afrinutri section*/
+.afrinutri-content {
+    max-width: 65vw;
+    margin: 0 auto;
+    background-color: var(--light-color);
+    padding: 30px;
+    border-left: 6px solid var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background-color:#ece7dd;
+}
+
+.afrinutri-content p {
+    font-family: 'Roboto', sans-serif;
+    color: var(--dark-color);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    transition: transform 0.3s ease-in-out;
+}
+.afrinutri-content p:hover {
+     transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+    .afrinutri-content {
+        max-width: 90%;
+        padding: 20px;
+    }
+}
+
+
 
 /*les card pages services*/
 .service-card {
@@ -189,6 +291,8 @@ body {
     border-top-right-radius: 15px;
 }
 
+
+
 /*page formation*/
 /*page formation, marge entre les formations*/
 @media (min-width: 992px) {
@@ -196,25 +300,28 @@ body {
         margin-bottom: 100px !important;
     }
 }
+
 .justify-text {
     text-align: justify;
 }
 
 .bg-formation-1 {
-    background-color: #f5f5f0; 
+    background-color: #f5f5f0;
 }
 
 .bg-formation-2 {
-    background-color: #fafaf5; 
+    background-color: #fafaf5;
 }
 
 /* Styles pour les deux cartes de contact */
 .contact-card {
-    background-color: var(--light-color); /* Arrière-plan harmonisé */
+    background-color: var(--light-color);
+    /* Arrière-plan harmonisé */
     border: 1px solid var(--secondary-color);
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    height: 100%; /* S'assure que la carte s'étire en hauteur */
+    height: 100%;
+    /* S'assure que la carte s'étire en hauteur */
     display: flex;
     flex-direction: column;
 }
@@ -223,7 +330,9 @@ body {
     color: var(--dark-color);
 }
 
-.contact-card h2, .contact-card p, .contact-card label {
+.contact-card h2,
+.contact-card p,
+.contact-card label {
     color: var(--dark-color);
 }
 
@@ -231,6 +340,8 @@ body {
     color: var(--secondary-color);
 }
 
-.contact-card .fa-map-marker-alt, .contact-card .fa-phone, .contact-card .fa-envelope {
+.contact-card .fa-map-marker-alt,
+.contact-card .fa-phone,
+.contact-card .fa-envelope {
     font-size: 2rem;
 }
