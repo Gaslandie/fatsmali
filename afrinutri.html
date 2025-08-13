@@ -93,7 +93,8 @@
                         </div>
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 product-card">
-                                <img src="assets/images/complementalimentaire.jpeg" class="card-img-top product-image img-fluid"
+                                <img src="assets/images/complementalimentaire.jpeg"
+                                    class="card-img-top product-image img-fluid"
                                     alt="Image de compléments alimentaires">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold text-center">Compléments alimentaires naturels</h5>
@@ -123,8 +124,22 @@
     <script src="assets/js/loadComponents.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            AOS.init();
-            includeHTML();
+            // Appelle la fonction d'inclusion, et une fois que c'est fait...
+            includeHTML(() => {
+                AOS.init();
+                // ... on exécute la logique pour le lien actif ici !
+                const navLinks = document.querySelectorAll('.nav-link');
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+                navLinks.forEach(link => {
+                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
+                    if (linkPath === currentPath) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
         });
     </script>
 </body>

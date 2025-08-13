@@ -139,8 +139,22 @@
     <script src="assets/js/loadComponents.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            includeHTML();
-            AOS.init();
+            // Appelle la fonction d'inclusion, et une fois que c'est fait...
+            includeHTML(() => {
+                AOS.init();
+                // ... on exécute la logique pour le lien actif ici !
+                const navLinks = document.querySelectorAll('.nav-link');
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+                navLinks.forEach(link => {
+                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
+                    if (linkPath === currentPath) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
         });
     </script>
 </body>

@@ -13,44 +13,7 @@
 
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="assets/images/logo.jpeg" alt="FAT-S-MALI Logo" height="80" class="me-2 rounded-circle">
-                    <span class="navbar-brand-custom text-white fw-bold">
-                        <span class="fat-text" style="color: var(--secondary-color);">FAT</span>-S-MALI
-                    </span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item  mx-2">
-                            <a class="nav-link" href="index.html">Accueil</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="about.html">À propos</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="services.html">Services</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="formations.html">Formations</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="afrinutri.html">AFRI-NUTRI</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div w3-include-html="nav.html"></div>
 
     <main>
         <!--Section hero-->
@@ -195,53 +158,32 @@
         </section>
     </main>
 
-    <footer class="footer-custom py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4 text-center text-md-start">
-                    <a href="index.html" class="d-inline-block mb-3">
-                        <img src="assets/images/logo.jpeg" alt="FAT-S-MALI Logo" height="80"
-                            class="me-2 rounded-circle">
-                    </a>
-                    <p class="mt-2 text-white">© 2025 FAT-S-MALI. Tous droits réservés.</p>
-                </div>
-
-                <div class="col-md-4 text-center">
-                    <h5 class="fw-bold mb-3">Contactez-nous</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Angle rue El Aarar et boulevard Lalla Yacout,
-                            Casablanca, Maroc</li>
-                        <li><i class="fas fa-phone me-2"></i> +212 (0) 770 740 159</li>
-                        <li><i class="fas fa-phone me-2"></i> +212 (0) 687 905 996</li>
-                        <li><i class="fas fa-envelope me-2"></i> fatsmali201@gmail.com</li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 text-center">
-                    <h5 class="fw-bold mb-3">Liens rapides</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white text-decoration-none">Accueil</a></li>
-                        <li><a href="about.html" class="text-white text-decoration-none">À propos</a></li>
-                        <li><a href="services.html" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="formations.html" class="text-white text-decoration-none">Formations</a></li>
-                        <li><a href="afrinutri.html" class="text-white text-decoration-none">AFRI-NUTRI</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="mt-2 mb-2 border-secondary">
-            <div class="text-center">
-                <h5 class="d-inline-block me-3">Suivez-nous</h5>
-                <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="#" class="text-white me-2"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div w3-include-html="footer.html"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/loadComponents.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Appelle la fonction d'inclusion, et une fois que c'est fait...
+            includeHTML(() => {
+                AOS.init();
+                // ... on exécute la logique pour le lien actif ici !
+                const navLinks = document.querySelectorAll('.nav-link');
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+                navLinks.forEach(link => {
+                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
+                    if (linkPath === currentPath) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

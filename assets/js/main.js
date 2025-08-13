@@ -1,5 +1,7 @@
 //attend que le dom soit chargé
 document.addEventListener('DOMContentLoaded', () => {
+
+    //animation des compteurs
     const counters = document.querySelectorAll('.counter');
 
     //declencher l'animation quand 50% de l'element est visible
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(counter => {
         observer.observe(counter);
     })
+
 })
 
-// Initialisation de AOS
-AOS.init();
+

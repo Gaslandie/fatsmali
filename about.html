@@ -29,15 +29,13 @@
                         <img src="assets/images/team1.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 1">
                     </div>
                     <div class="col-6 col-md-3">
-                        <img src="assets/images/team2.jpeg" class="img-fluid rounded gallery-img-short"
-                            alt="Image 2">
+                        <img src="assets/images/team2.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 2">
                     </div>
                     <div class="col-6 col-md-3">
                         <img src="assets/images/team3.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 3">
                     </div>
                     <div class="col-6 col-md-3">
-                        <img src="assets/images/team4.jpeg" class="img-fluid rounded gallery-img-short"
-                            alt="Image 4">
+                        <img src="assets/images/team4.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 4">
                     </div>
                 </div>
             </section>
@@ -67,15 +65,13 @@
                         <img src="assets/images/team5.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 1">
                     </div>
                     <div class="col-6 col-md-3">
-                        <img src="assets/images/team6.jpeg" class="img-fluid rounded gallery-img-short"
-                            alt="Image 2">
+                        <img src="assets/images/team6.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 2">
                     </div>
                     <div class="col-6 col-md-3">
                         <img src="assets/images/team7.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 3">
                     </div>
                     <div class="col-6 col-md-3">
-                        <img src="assets/images/team8.jpeg" class="img-fluid rounded gallery-img-short"
-                            alt="Image 4">
+                        <img src="assets/images/team8.jpeg" class="img-fluid rounded gallery-img-short" alt="Image 4">
                     </div>
                 </div>
             </section>
@@ -116,8 +112,22 @@
     <script src="assets/js/loadComponents.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            includeHTML();
-            AOS.init();
+            // Appelle la fonction d'inclusion, et une fois que c'est fait...
+            includeHTML(() => {
+                AOS.init();
+                // ... on exécute la logique pour le lien actif ici !
+                const navLinks = document.querySelectorAll('.nav-link');
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+                navLinks.forEach(link => {
+                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
+                    if (linkPath === currentPath) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
         });
     </script>
 </body>
