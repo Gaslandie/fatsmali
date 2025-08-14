@@ -43,25 +43,3 @@
         100% { transform: rotate(360deg); }
     }
 </style>
-
-<script>
-    // === LOADER SIMPLE SCRIPT ===
-    function initSimpleLoader() {
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('simpleLoader');
-            if (loader) {
-                // Attendre un peu pour voir le loader, puis le cacher
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                    // Optionnel : supprimer complètement l'élément après la transition
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                    }, 500);
-                }, 800); // Ajustez ce délai selon vos préférences
-            }
-        });
-    }
-    
-    // Initialiser dès que ce script est chargé
-    initSimpleLoader();
-</script>
