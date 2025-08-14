@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+    <div w3-include-html="loader.html"></div>
     <div w3-include-html="nav.html"></div>
 
     <main>
@@ -127,6 +127,19 @@
             // Appelle la fonction d'inclusion, et une fois que c'est fait...
             includeHTML(() => {
                 AOS.init();
+                // === INITIALISER LE LOADER APRÈS INCLUSION ===
+                const loader = document.getElementById('simpleLoader');
+                if (loader) {
+                    setTimeout(() => {
+                        loader.classList.add('hidden');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                            initializeCounters();
+                        }, 500); // Durée de la transition pour cacher le loader
+                    }, 800);
+                } else {
+                    initializeCounters();
+                }
                 // ... on exécute la logique pour le lien actif ici !
                 const navLinks = document.querySelectorAll('.nav-link');
                 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
