@@ -17,6 +17,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--light-color);
     color: var(--dark-color);
+    padding-top: 90px;
 }
 
 h1,
@@ -32,6 +33,14 @@ h6 {
 
 .navbar-custom {
     background-color: var(--primary-color);
+    position: fixed;
+    /* Fixe la barre de navigation */
+    top: 0;
+    /* Place la barre en haut de l'écran */
+    width: 100%;
+    /* S'assure qu'elle occupe toute la largeur */
+    z-index: 1030;
+    /* La place au-dessus des autres éléments de la page */
 }
 
 .navbar-brand-custom {
@@ -123,6 +132,10 @@ h6 {
     position: relative;
     overflow: hidden;
     transition: background-color 0.5s ease-out;
+    /* height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 
 .hero-section:hover::before {

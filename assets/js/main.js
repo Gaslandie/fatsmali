@@ -50,54 +50,78 @@ function initializeCounters() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Cette fonction gère la validation et l'envoi du formulaire de contact via AJAX.
+ */
+function setupContactForm() {
     const form = document.getElementById('contactForm');
-    
-    // On écoute l'événement 'submit' du formulaire
-    form.addEventListener('submit', function(event) {
+    if (!form) { return; }
+
+    form.addEventListener('submit', async function (event) {
+        // Validation côté client
         let isValid = true;
-
-        // Validation du nom
         const nameInput = document.getElementById('name');
-        if (nameInput.value.trim() === '') {
-            nameInput.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            nameInput.classList.remove('is-invalid');
-        }
+        if (nameInput.value.trim() === '') { nameInput.classList.add('is-invalid'); isValid = false; } else { nameInput.classList.remove('is-invalid'); }
 
-        // Validation de l'email
         const emailInput = document.getElementById('email');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value.trim())) {
-            emailInput.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            emailInput.classList.remove('is-invalid');
-        }
+        if (!emailRegex.test(emailInput.value.trim())) { emailInput.classList.add('is-invalid'); isValid = false; } else { emailInput.classList.remove('is-invalid'); }
 
-        // Validation du téléphone (vérifie s'il y a des chiffres)
         const phoneInput = document.getElementById('phone');
-        if (phoneInput.value.trim() === '' || isNaN(phoneInput.value.trim().replace(/\s/g, ''))) {
-            phoneInput.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            phoneInput.classList.remove('is-invalid');
-        }
+        if (phoneInput.value.trim() === '' || isNaN(phoneInput.value.trim().replace(/\s/g, ''))) { phoneInput.classList.add('is-invalid'); isValid = false; } else { phoneInput.classList.remove('is-invalid'); }
 
-        // Validation du message
         const messageInput = document.getElementById('message');
-        if (messageInput.value.trim() === '') {
-            messageInput.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            messageInput.classList.remove('is-invalid');
-        }
+        if (messageInput.value.trim() === '') { messageInput.classList.add('is-invalid'); isValid = false; } else { messageInput.classList.remove('is-invalid'); }
 
-        // Si la validation échoue, on empêche l'envoi du formulaire
         if (!isValid) {
             event.preventDefault();
             event.stopPropagation();
+            return; // Arrête l'exécution si la validation échoue
+        }
+
+        // Empêche la soumission traditionnelle du formulaire
+        event.preventDefault();
+
+        // Envoi via AJAX
+        const submitBtn = document.getElementById('submitBtn');
+        const formData = new FormData(form);
+        const formUrl = form.action;
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Envoi...';
+
+        try {
+            const response = await fetch(formUrl, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Succès
+                submitBtn.innerText = 'Message envoyé !';
+                submitBtn.classList.remove('btn-custom');
+                submitBtn.classList.add('btn-success');
+                form.reset();
+                setTimeout(() => {
+                    submitBtn.innerText = 'Envoyer';
+                    submitBtn.classList.remove('btn-success');
+                    submitBtn.classList.add('btn-custom');
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                // Erreur
+                submitBtn.innerText = 'Erreur lors de l\'envoi !';
+                submitBtn.classList.remove('btn-custom');
+                submitBtn.classList.add('btn-danger');
+            }
+        } catch (error) {
+            console.error(error);
+            submitBtn.innerText = 'Erreur réseau !';
+            submitBtn.classList.remove('btn-custom');
+            submitBtn.classList.add('btn-danger');
         }
     });
-});
+}
